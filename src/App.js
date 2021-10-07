@@ -7,6 +7,7 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Products from './components/products/Products';
 import Inventory from './components/inventory/Inventory';
+import Cart from './components/cart/Cart';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path='/inventory'><Inventory></Inventory></Route>
         <Route path='/shop'><Products></Products></Route>
         
-        <Route></Route>
+        <Route path='/cart'><Cart></Cart></Route>
 
 
 
