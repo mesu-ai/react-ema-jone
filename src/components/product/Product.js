@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 import Features from '../features/Features';
 
 const Product = (props) => {
-    
+    // console.log(props.product);
     const {name,price,seller,star,stock,image,features}=props.product;
     
 
@@ -28,7 +28,7 @@ const Product = (props) => {
                              <div>
                                 <Card.Text>$ {price}</Card.Text> 
                                 <Card.Text>Only {stock} left in stock - Order Soon </Card.Text>
-                                <button style={{backgroundColor:"#f0c14b"}} className="btn px-5 fs-6 fw-bold">Add To Cart</button>
+                                <button onClick={()=>props.addcartHandeler(props.product)} style={{backgroundColor:"#f0c14b"}} className="btn px-5 fs-6 fw-bold">Add To Cart</button>
 
                              </div>
                              <div>
@@ -42,7 +42,7 @@ const Product = (props) => {
                                 <ol>
                                     
                                     {
-                                    features.map(feature=><li><Features key={Math.random()} feature={feature}></Features></li>)
+                                    features.map(feature=><li key={Math.random()}><Features key={Math.random()} feature={feature}></Features></li>)
                                     }
                                     
                                     
