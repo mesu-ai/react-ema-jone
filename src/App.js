@@ -9,6 +9,7 @@ import Inventory from './components/inventory/Inventory';
 import Cart from './components/cart/Cart';
 import Nomatch from './components/nomatch/Nomatch';
 import Order from './components/orderReview/Order';
+import PlaceOrder from './components/placeOrder/PlaceOrder';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Route path='/cart'><Cart></Cart></Route>
 
         <Route path='/order'><Order></Order></Route>
+        <Route path='/orderplace'><PlaceOrder></PlaceOrder></Route>
+        
 
         <Route exact path='/'><Home></Home></Route>
 

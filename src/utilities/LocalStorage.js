@@ -41,6 +41,11 @@ const getStoredDb=()=>{
     return exists?JSON.parse(exists):{};
 
 
+}
+
+const clearDb=()=>{
+    const exists=localStorage.getItem('shopping_cart');
+    return exists? localStorage.removeItem('shopping_cart'):{};
 
 }
-export {addtodb,revomeFromDb,getStoredDb};
+export {addtodb,revomeFromDb,getStoredDb,clearDb};
