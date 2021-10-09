@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 const Cart = (props) => {
-    // console.log(props.cart);
+    console.log(props);
+    console.log(props.children);
     const {cart}=props;
 
 
@@ -34,10 +36,11 @@ const Cart = (props) => {
            <p>Price: {price.toFixed(2)} </p>
            <p>Shipping Cost : {shipping} </p>
            <p>Tax: {tax.toFixed(2)} </p>
+           
            <hr />
            <p>Total Price: {totalPrice.toFixed(2)} </p>
            
-           <button>Order Now</button>
+           {props.children}
 
 
 

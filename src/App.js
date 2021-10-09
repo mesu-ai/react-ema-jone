@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.png';
 import './App.css';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import Footer from './components/footer/Footer';
@@ -8,6 +7,8 @@ import Home from './components/home/Home';
 import Products from './components/products/Products';
 import Inventory from './components/inventory/Inventory';
 import Cart from './components/cart/Cart';
+import Nomatch from './components/nomatch/Nomatch';
+import Order from './components/orderReview/Order';
 
 
 function App() {
@@ -18,10 +19,18 @@ function App() {
       <Switch>
 
         <Route path='/home'><Home></Home></Route>
+
         <Route path='/inventory'><Inventory></Inventory></Route>
+        
         <Route path='/shop'><Products></Products></Route>
         
         <Route path='/cart'><Cart></Cart></Route>
+
+        <Route path='/order'><Order></Order></Route>
+
+        <Route exact path='/'><Home></Home></Route>
+
+        <Route path='*'><Nomatch></Nomatch></Route>
 
 
 
