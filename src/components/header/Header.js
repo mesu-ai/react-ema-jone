@@ -23,6 +23,8 @@ const Header = () => {
                 <NavLink activeClassName="bg-success" to="/shop">Shop</NavLink>
                 <NavLink activeClassName="bg-success" to="/inventory">Inventory</NavLink>
                 <NavLink activeClassName="bg-success" to="/order">Order Review</NavLink>
+
+                <NavLink className="" activeClassName="bg-success" to="/login">Login</NavLink>
                 </Nav>
                 </Container>
             </Navbar>

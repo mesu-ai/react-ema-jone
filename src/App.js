@@ -10,6 +10,8 @@ import Cart from './components/cart/Cart';
 import Nomatch from './components/nomatch/Nomatch';
 import Order from './components/orderReview/Order';
 import PlaceOrder from './components/placeOrder/PlaceOrder';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
 
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
 
         <Route path='/order'><Order></Order></Route>
         <Route path='/orderplace'><PlaceOrder></PlaceOrder></Route>
+
+        <Route path='/login'><Login></Login></Route>
+        <Route path='/register'><Register></Register></Route>
         
 
         <Route exact path='/'><Home></Home></Route>
