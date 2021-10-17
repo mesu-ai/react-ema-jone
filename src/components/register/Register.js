@@ -1,6 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
@@ -8,7 +9,7 @@ const Register = () => {
         <div className="m-5">
 
         <h3>Create Your Account</h3>
-        <Form className="container text-start w-50 mx-auto border shadow-lg rounded-3 p-4 mt-3">
+        <Form className="container text-start w-50 mx-auto border rounded-3 p-4 m-3">
         <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" placeholder="Enter Name" />
@@ -32,6 +33,9 @@ const Register = () => {
         </div>
        
     </Form>
+
+    <p>Already have an account? 
+        <Link style={{color:'navy'}} to='/login'>Sign-In</Link></p>
 
     </div>
     );

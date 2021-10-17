@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div className="m-5">
-            <Form className="container text-start m-5 w-50 mx-auto shadow-lg rounded-3 p-4 mt-3">
+            <Form className="container text-start m-5 w-50 mx-auto border rounded-3 p-4 mt-3">
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
