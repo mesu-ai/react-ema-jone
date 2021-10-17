@@ -3,10 +3,15 @@ import './Header.css';
 import logo from '../../logo.png';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import Button from '@restart/ui/esm/Button';
+import useFirebase from '../../hooks/useFirebase';
 
 
 
 const Header = () => {
+
+    const {user,logout}=useFirebase();
+
     
     return (
         <header >
@@ -24,7 +29,17 @@ const Header = () => {
                 <NavLink activeClassName="bg-success" to="/inventory">Inventory</NavLink>
                 <NavLink activeClassName="bg-success" to="/order">Order Review</NavLink>
 
-                <NavLink className="" activeClassName="bg-success" to="/login">Login</NavLink>
+
+                {user.email ?
+
+                    <Button onClick={logout} className="btn btn-danger">Logout</Button> :
+                    
+                    <NavLink  to="/login">
+                    <Button className="btn btn-danger">Login</Button>
+                    </NavLink>
+                
+                }
+
                 </Nav>
                 </Container>
             </Navbar>

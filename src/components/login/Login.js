@@ -2,8 +2,11 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
+     const {signInUsingGoogle} = useFirebase();
+
     return (
         <div className="m-5">
             <Form className="container text-start m-5 w-50 mx-auto border rounded-3 p-4 mt-3">
@@ -24,8 +27,16 @@ const Login = () => {
             </Form>
 
             <Link to='/register'>
-            <button style={{backgroundColor:"#f0c14b",padding:'5px 10px',borderRadius:'5px'}} className="fw-bold">Create Your Ema-jone Account</button>
+            <button style={{backgroundColor:"#f0c14b",padding:'5px 10px',borderRadius:'5px'}} className="fw-bold m-4">Create Your Ema-jone Account</button>
             </Link>
+
+
+            <p >--------------------or--------------------</p>
+
+            <button onClick={signInUsingGoogle} className="btn btn-danger mt-4">Google Sign In</button>
+
+
+
 
 
             
