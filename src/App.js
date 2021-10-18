@@ -14,6 +14,7 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import AuthProvider from './contex/AuthProvider';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
+import Shipping from './components/shipping/Shipping';
 
 
 function App() {
@@ -33,13 +34,15 @@ function App() {
         
         <Route path='/cart'><Cart></Cart></Route>
 
-        <PrivateRoute path='/order'><Order></Order></PrivateRoute>
-        <PrivateRoute path='/orderplace'><PlaceOrder></PlaceOrder></PrivateRoute>
-
         <Route path='/login'><Login></Login></Route>
         <Route path='/register'><Register></Register></Route>
-        
 
+        <PrivateRoute path='/order'><Order></Order></PrivateRoute>
+        
+        <PrivateRoute path='/shipping'><Shipping></Shipping></PrivateRoute>
+
+        <PrivateRoute path='/orderplace'><PlaceOrder></PlaceOrder></PrivateRoute>
+        
         <Route exact path='/'><Home></Home></Route>
 
         <Route path='*'><Nomatch></Nomatch></Route>

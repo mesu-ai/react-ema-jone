@@ -13,7 +13,6 @@ const Order = () => {
     const history= useHistory();
 
   
-
     const removeCartHandaler=(key)=>{
        const newCart= cart.filter(product=>product.key !==key);
        setCart(newCart);
@@ -21,11 +20,10 @@ const Order = () => {
 
     }
 
-    const url=`/orderplace`
+    const url=`/shipping`;
     const handleOrderPlace=()=>{
-        clearDb();
+        // clearDb();
         history.push(url);
-
 
     }
 
@@ -41,7 +39,7 @@ const Order = () => {
 
         <div style={{borderLeft:'2px solid black'}} className="col-3">
             <Cart cart={cart} > 
-                <button onClick={handleOrderPlace} style={{backgroundColor:"#f0c14b"}} className="btn px-5 fs-6 fw-bold mt-5">Place Order</button>
+                <button onClick={handleOrderPlace} style={{backgroundColor:"#f0c14b"}} className="btn px-5 fs-6 fw-bold mt-5">Proceed To Order</button>
             
              </Cart>
         </div>
