@@ -2,10 +2,11 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
-     const {signInUsingGoogle} = useFirebase();
+     const {signInUsingGoogle} = useAuth();
 
     return (
         <div className="m-5">

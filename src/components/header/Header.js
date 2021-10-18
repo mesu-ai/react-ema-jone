@@ -30,6 +30,7 @@ const Header = () => {
                 <NavLink activeClassName="bg-success" to="/order">Order Review</NavLink>
 
 
+                <span style={{color:'wheat',margin:'5px'}}>{user.displayName}</span>
                 {user.email ?
 
                     <Button onClick={logout} className="btn btn-danger">Logout</Button> :

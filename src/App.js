@@ -12,12 +12,16 @@ import Order from './components/orderReview/Order';
 import PlaceOrder from './components/placeOrder/PlaceOrder';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import AuthProvider from './contex/AuthProvider';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+     <AuthProvider>
+
+     <BrowserRouter>
       <Header></Header>
       <Switch>
 
@@ -29,7 +33,7 @@ function App() {
         
         <Route path='/cart'><Cart></Cart></Route>
 
-        <Route path='/order'><Order></Order></Route>
+        <PrivateRoute path='/order'><Order></Order></PrivateRoute>
         <Route path='/orderplace'><PlaceOrder></PlaceOrder></Route>
 
         <Route path='/login'><Login></Login></Route>
@@ -49,6 +53,7 @@ function App() {
 
 
 
+     </AuthProvider>
       
     </div>
   );
