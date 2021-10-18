@@ -1,12 +1,25 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link,useLocation,useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
      const {signInUsingGoogle} = useAuth();
+    const location= useLocation();
+    const history= useHistory();
+
+    const redirect_uri = location.state?.from || '/home';
+
+     const handleLogin=()=>{
+         signInUsingGoogle()
+         .then(result=>{
+             history.push(redirect_uri);
+
+         })
+
+
+     }
 
     return (
         <div className="m-5">
@@ -34,7 +47,7 @@ const Login = () => {
 
             <p >--------------------or--------------------</p>
 
-            <button onClick={signInUsingGoogle} className="btn btn-danger mt-4">Google Sign In</button>
+            <button onClick={handleLogin} className="btn btn-danger mt-4">Google Sign In</button>
 
 
 

@@ -14,14 +14,15 @@ const useFirebase = () => {
 
     const signInUsingGoogle=()=>{
 
-        signInWithPopup(auth,googleProvider)
-        .then(result=>{
-            setUser(result.user);
+     return signInWithPopup(auth,googleProvider)
+        
+        // .then(result=>{
+        //     setUser(result.user);
 
-        }).catch(error=>{
-            setError(error.massage);
+        // }).catch(error=>{
+        //     setError(error.massage);
 
-        });
+        // });
 
     }
 

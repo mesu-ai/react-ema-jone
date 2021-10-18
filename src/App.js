@@ -34,7 +34,7 @@ function App() {
         <Route path='/cart'><Cart></Cart></Route>
 
         <PrivateRoute path='/order'><Order></Order></PrivateRoute>
-        <Route path='/orderplace'><PlaceOrder></PlaceOrder></Route>
+        <PrivateRoute path='/orderplace'><PlaceOrder></PlaceOrder></PrivateRoute>
 
         <Route path='/login'><Login></Login></Route>
         <Route path='/register'><Register></Register></Route>
