@@ -2,16 +2,31 @@ import { useEffect, useState } from "react";
 import { getStoredDb } from "../../utilities/LocalStorage";
 
 
-const useCart=(products)=>{
+const useCart=()=>{
     const [cart,setCart]=useState([]);
     // console.log(products);
 
     useEffect(()=>{
 
         const storedDb=getStoredDb();
-        // console.log(storedDb);
+        //  console.log(storedDb);
+          const keys=Object.keys(storedDb);
+         // console.log(keys);
+          fetch('http://localhost:5000/products/byKeys',{
+              method:'POST',
+              headers:{
+                  'content-type':'application/json'
+              },
+              body:JSON.stringify(keys)
 
-        const newCart=[];
+          })
+          .then(res=>res.json())
+          .then(products=>{
+            //   console.log(products)
+         
+
+       const newCart=[];
+       
         if(products.length){
             for (const key in storedDb) {
               //  console.log(key);
@@ -30,9 +45,10 @@ const useCart=(products)=>{
             
             setCart(newCart);
         }
+
+    })
         
-        
-    },[ products]);
+    },[]);
 
     // console.log(cart);
 

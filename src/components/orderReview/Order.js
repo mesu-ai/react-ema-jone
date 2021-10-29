@@ -9,7 +9,7 @@ import OrderProduct from '../orderProduct/OrderProduct';
 
 const Order = () => {
     const [products,setProducts]=  useProducts();
-    const [cart,setCart]=useCart(products);
+    const [cart,setCart]=useCart();
     const history= useHistory();
 
   

@@ -15,14 +15,14 @@ const cartelement = <FontAwesomeIcon icon={faShoppingCart} />
 const Products = () => {
     // const [products]=useProducts();
     const [products,setProducts]=useState([]);
-    const [cart,setCart]=useCart(products);
+    const [cart,setCart]=useCart();
 
     const [displayProducts,setDisplayProducts]= useState([]);
     // const [displayProducts,setDisplayProducts]= useProducts();
 
 
     const  [pageCount,setPageCount]= useState(0);
-    const [page,setPage]=useState([]);
+    const [page,setPage]=useState(0);
     const size=10;
     useEffect(()=>{
         fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
@@ -91,7 +91,7 @@ const Products = () => {
                 
                 <div className="my-5 pagination">
                     
-                {[...Array(pageCount).keys()].map(number=><button className={number===page ? 'selected' : ''} key={number} onClick={()=>setPage(number)}>{number}</button>)}
+                {[...Array(pageCount).keys()].map(number=><button className={number===page ? 'selected' : ''} key={number} onClick={()=>setPage(number)}>{number+1}</button>)}
 
                 </div>
             </Row>
