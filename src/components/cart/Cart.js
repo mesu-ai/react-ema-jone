@@ -2,8 +2,8 @@ import React from 'react';
 
 
 const Cart = (props) => {
-    console.log(props);
-    console.log(props.children);
+    // console.log(props);
+    // console.log(props.children);
     const {cart}=props;
 
 

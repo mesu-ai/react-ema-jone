@@ -3,13 +3,19 @@ import { useEffect, useState } from "react"
 const useProducts=()=>{
     const [products,setProducts]=useState([]);
     const [displayProducts,setDisplayProducts]= useState([]);
+   
     useEffect(()=>{
-        fetch('./productsdb.json')
+        fetch('http://localhost:5000/products')
         .then(res=>res.json())
-        .then(data=>setProducts(data))
-        .then(data=>setDisplayProducts(data))
-    },[]);
+        .then(data=>{
+            setProducts(data.products);
+            setDisplayProducts(data.products);
 
+            })
+
+        },[]);
+
+        // console.log(pageCount);
     return [products,setProducts,displayProducts,setDisplayProducts];
 
 

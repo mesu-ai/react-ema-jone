@@ -1,5 +1,5 @@
-
-import { FormControl, InputGroup, Row } from 'react-bootstrap';
+import './Products.css';
+import { FormControl, InputGroup, Pagination, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { addtodb } from '../../utilities/LocalStorage';
 import Cart from '../cart/Cart';
@@ -8,14 +8,39 @@ import useProducts from '../hooks/useProducts';
 import Product from '../product/Product';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 const cartelement = <FontAwesomeIcon icon={faShoppingCart} />
 
 const Products = () => {
-    const [products]=useProducts();
+    // const [products]=useProducts();
+    const [products,setProducts]=useState([]);
     const [cart,setCart]=useCart(products);
-    const [displayProducts,setDisplayProducts]= useProducts();
-    // console.log(products);
+
+    const [displayProducts,setDisplayProducts]= useState([]);
+    // const [displayProducts,setDisplayProducts]= useProducts();
+
+
+    const  [pageCount,setPageCount]= useState(0);
+    const [page,setPage]=useState([]);
+    const size=10;
+    useEffect(()=>{
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setProducts(data.products);
+            setDisplayProducts(data.products);
+            const count=data.count;
+            const pageNumber=Math.ceil(count/size);
+            setPageCount(pageNumber);
+        })
+
+    },[page]);
+
+
+
+    //  console.log([...Array(pageCount).keys()]);
+
   
     const addcartHandeler=(product)=>{
         const newCart=[...cart,product];
@@ -57,8 +82,18 @@ const Products = () => {
 
         <section className="row mx-auto">
         
-            <Row lg={1} className="col-9 me-1 px-2">
+            <Row lg={1} className="col-9 me-1 px-2 ">
+                
+                <div>
                 {displayProducts.map(product=><Product key={Math.random()} product={product} addcartHandeler={addcartHandeler}></Product>)}
+
+                </div>
+                
+                <div className="my-5 pagination">
+                    
+                {[...Array(pageCount).keys()].map(number=><button className={number===page ? 'selected' : ''} key={number} onClick={()=>setPage(number)}>{number}</button>)}
+
+                </div>
             </Row>
 
             <div style={{borderLeft:'2px solid black'}} className="col-3">
@@ -70,11 +105,9 @@ const Products = () => {
                     
                 
                 </Cart>
-            </div>
-
-            
-            
+            </div>  
         </section>
+        
 
         </>
     );

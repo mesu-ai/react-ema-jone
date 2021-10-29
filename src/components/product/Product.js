@@ -6,6 +6,7 @@ import Features from '../features/Features';
 const Product = (props) => {
     // console.log(props.product);
     const {name,price,seller,star,stock,image,features}=props.product;
+    // console.log(...props?.features);
     
 
 
@@ -39,6 +40,7 @@ const Product = (props) => {
                                     emptySymbol="far fa-star text-warning"
                                     fullSymbol="fas fa-star text-warning"
                                 />
+                               
                                 <ol>
                                     
                                     {
